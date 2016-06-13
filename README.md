@@ -1,7 +1,7 @@
 # Marathon_ApeRun
 
-Java web service running on Google AppEngine cloud service is used. Data is stored using the Google nosql datastore (Google Datastore) 
-and JSON http APIs serve the data to the donor webviews and the Android app.
+Java web service running on Google AppEngine cloud service. Data is stored using the Google nosql datastore (Google Datastore) 
+and JSON http APIs serve the data to the donor webviews and the Android app (not attached).
 
 Donors can drop virtual pledges for a charity of the runner’s choice  on a map where they appear as markers with monetary values attached. 
 Donors can watch “runners” live go through these spots where the pledges/markers are and watch them collect them. Collection of a marker 
