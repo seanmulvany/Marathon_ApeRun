@@ -1,0 +1,362 @@
+/*******************************************************************************
+ * Copyright (C) 2012 apeworks
+ * 
+ *     This program is free software: you can redistribute it and/or modify
+ *     it under the terms of the GNU Affero General Public License as
+ *     published by the Free Software Foundation, either version 3 of the
+ *     License, or (at your option) any later version.
+ * 
+ *     This program is distributed in the hope that it will be useful,
+ *     but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *     GNU Affero General Public License for more details.
+ * 
+ *     You should have received a copy of the GNU Affero General Public License
+ *     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ******************************************************************************/
+body,div,td {
+    font-family: 'Droid Sans', 'Verdana';
+    text-align: left;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.amountLabel {
+    color: #ffffff;
+    white-space: nowrap;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.runnerAmountLabel {
+    white-space: nowrap;
+    font-size: xx-small;
+}
+
+.help-text {
+    text-align: left;
+}
+
+#map_canvas {
+    height: 400px;
+    width: 100%;
+}
+
+#map_canvas2 {
+    height: 250px;
+    width: 100%;
+}
+
+.error {
+    color: red
+}
+
+.success {
+    color: green
+}
+
+.panel {
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.left-login-panel {
+    float: left;
+    width: 40%;
+    text-align: left;
+    background-color: LightGray;
+}
+
+.right-login-panel {
+    float: right;
+    width: 40%;
+    text-align: left;
+    background-color: LightGray;
+}
+
+.banner-text {
+    font-family: 'Sigmar One';
+    font-size: 32pt;
+    color: white;
+    line-height: 80%;
+}
+
+.faq-panel {
+    width: 100%;
+    float: left;
+    text-align: left;
+    background-color: #6EFFA3;
+}
+
+.question {
+    
+}
+
+.answer {
+    
+}
+
+.form-label {
+    float: left;
+    width: 45%;
+}
+
+.form-input {
+    float: right;
+    width: 45%;
+    clear: right;
+}
+
+#twitter {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.text-panel {
+    background-color: LightGray;
+    color: #ffffff;
+    padding: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    float: none;
+}
+
+.text-box-title {
+    font-family: 'Sigmar One';
+    font-size: x-large;
+}
+
+.donor-donations {
+    float: left;
+    width: 190px;
+}
+
+.pay-now {
+    text-align: right;
+    margin-top: 5px;
+    display: none;
+}
+
+.pay-now a {
+    background-color: #b3e58b;
+    font-family: 'Sigmar One';
+    color: white;
+    border-radius: 5px;
+    padding: 0 5px;
+    text-decoration: none;
+}
+
+.pay-now a:active {
+    position: relative;
+    top: 1px;
+}
+
+.runner-entry {
+    background-color: LightGray;
+    height: 50px;
+    padding: 5px;
+    margin: 5px;
+    float: none;
+    line-height: 50px;
+    border-radius: 5px;
+}
+
+.runner-entry-text {
+    float: left;
+    color: white;
+    width: 150px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.runner-entry img {
+    margin-right: 50px;
+    height: 50px;
+    float: left;
+    border-radius: 5px;
+}
+
+.runner-amount {
+    background-color: gray;
+    padding: 5px;
+    float: right;
+    line-height: 30px;
+    height: 40px;
+    min-width: 5em;
+}
+
+.expand {
+    font-family: 'Sigmar One';
+    color: blue;
+    margin: 9px;
+    padding: 10px;
+    float: left;
+    line-height: 1em;
+    border-radius: 5px;
+    background-color: gray;
+}
+
+#accordion a {
+    text-decoration: none;
+    color: white;
+}
+
+.countdown-column {
+    width: 30%;
+}
+
+.countdown-container {
+    width: 190px;
+    background-color: LightGray;
+    padding: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+dl,dt,dd {
+    margin: 0;
+    padding: 0;
+}
+
+dd {
+    width: 216px;
+    height: 41px;
+    background: url("../img/bg_bar.gif") no-repeat 0 0;
+    position: relative;
+}
+
+dd span {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 25px;
+    background: url("../img/bar.gif") no-repeat 0 0;
+    top: 8px;
+    left: 8px;
+    overflow: hidden;
+    text-indent: -8000px;
+}
+
+dd em {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 25px;
+    background: url("../img/bg_cover.gif") repeat-x;
+    top: 0;
+}
+
+.countdown {
+    color: white;
+}
+
+.runtimeCountdown {
+    text-align: center;
+    color: DarkGray;
+    font-weight: bold;
+}
+
+.left-panel {
+    float: left;
+    width: 205px;
+    text-align: left;
+}
+
+.left-panel img {
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+.centre-panel {
+    float: left;
+    width: 780px;
+    margin-left: 10px;
+}
+
+.right-panel {
+    float: left;
+    width: 200px;
+    text-align: left;
+}
+
+.banner {
+    background-color: #b3e58b;
+    color: #ffffff;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.header-menu {
+    float: right;
+    color: #ffffff;
+    /* width: 8em; */
+    padding-left: 3em;
+}
+
+.header-menu a {
+    color: #ffffff;
+}
+
+a img {
+    border: none;
+}
+
+.meter-wrap {
+    position: relative;
+}
+
+.meter-wrap,.meter-value,.meter-text {
+    /* The width and height of your image */
+    width: 155px;
+    height: 30px;
+}
+
+.meter-wrap,.meter-value {
+    background: url("../img/bar.gif") top left no-repeat;
+}
+
+.meter-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 5px;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.meter-wrap,.meter-value,.meter-text {
+    /* The width and height of your image */
+    width: 155px;
+    height: 30px;
+}
+
+.progressBar {
+    width: 216px;
+    height: 41px;
+    background: url("../img/bg_bar.gif") no-repeat 0 0;
+    position: relative;
+}
+
+.progressBar span {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 25px;
+    background: url("../img/bar.gif") no-repeat 0 0;
+    top: 8px;
+    left: 8px;
+    overflow: hidden;
+    text-indent: -8000px;
+}
+
+.progressBar em {
+    position: absolute;
+    display: block;
+    width: 200px;
+    height: 25px;
+    background: url("../img/bg_cover.gif") repeat-x 0 0;
+    top: 0;
+}

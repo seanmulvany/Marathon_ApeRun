@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="weevil-server:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="weevil-server-1.2.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="weevil-server:war exploded" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="com.google.appengine:appengine-api-1.0-sdk:1.9.15" />
+          <element id="library" level="project" name="objectify-2.2.3" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

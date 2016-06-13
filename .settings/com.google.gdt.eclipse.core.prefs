@@ -1,0 +1,5 @@
+#
+eclipse.preferences.version=1
+jarsExcludedFromWebInfLib=
+warSrcDir=target/weevil-server-0.1.0-SNAPSHOT
+warSrcDirIsOutput=true

@@ -1,0 +1,202 @@
+<!--
+  Copyright (C) 2012 apeworks
+  
+      This program is free software: you can redistribute it and/or modify
+      it under the terms of the GNU Affero General Public License as
+      published by the Free Software Foundation, either version 3 of the
+      License, or (at your option) any later version.
+  
+      This program is distributed in the hope that it will be useful,
+      but WITHOUT ANY WARRANTY; without even the implied warranty of
+      MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+      GNU Affero General Public License for more details.
+  
+      You should have received a copy of the GNU Affero General Public License
+      along with this program.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<html>
+<head>
+<title>ApeRunner - runner</title>
+<link rel="stylesheet" href="css/map.css" type="text/css"/>
+
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="CACHE-CONTROL" CONTENT="NO-CACHE" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<meta name="viewport" content="width = device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=no;">
+
+<script src="js/geo.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/markerwithlabel.js" charset="utf-8"></script>
+<script type="text/javascript" src="js/markerclusterer.js" charset="utf-8"></script>
+<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+
+<script language="JavaScript">
+player.location = new Object();
+player.location.x = 50;
+player.location.y = 50;
+player.time = new Date().getTime();
+player.duration = 40;
+player.speed = 11;
+player.distance = 7;
+
+var watch;
+var precision = 100;
+var requestActive = false;
+
+function main()
+{
+    $.ajaxSetup({dataType: "json"});
+    
+    if (new Date() < endDate)
+        initialiseGeoLoc();
+    else
+        gameOver(null);
+}
+
+function gameOver(loopReference)
+{
+    if (loopReference != null)
+        clearInterval(loopReference);
+    alert("Time up!!");
+}
+
+function createWatch()
+{
+    watch = geo_position_js.watchPosition(
+            positionChanged,
+            function()
+            {
+                $('#status').html("Couldn't get location");
+            },
+            {
+                enableHighAccuracy:true,
+                maximumAge:0,
+                timeout:60000
+            });
+}
+
+function initialiseGeoLoc()
+{
+    if(geo_position_js.init())
+    {
+        joinGame();
+    }
+    else
+    {
+        $('#status').html("Geo-location functionality not available");
+    }
+}
+
+function setPosition(p)
+{
+    player.location.x = p.coords.longitude;
+    player.location.y = p.coords.latitude;
+    precision = Math.round(p.coords.accuracy);
+    $('#status').html('<font color="' + getColour(precision) + '">GPS precision: ' + precision + '</font>');
+    
+    var pos=new google.maps.LatLng(player.location.y, player.location.x);
+    map.setCenter(pos);
+
+    player.marker.setPosition(pos);
+}
+
+function getColour(precision)
+{
+    return precision > 50 ? "red" : "black";
+}
+
+function promptForUsername()
+{
+    var defaultName = 'randomer' + Math.ceil(1000 * Math.random());
+    var username = prompt('Enter your name', defaultName);
+    player.id = username;
+}
+
+function joinGame()
+{
+     $.ajax('weevil/addRunner',
+           {type: 'POST',
+            success: function(runner) {
+                player = runner;
+                player.location = new Object();
+                player.time = new Date().getTime();
+                player.duration = 40;
+                player.speed = 11;
+                player.distance = 7;
+                createMapObject();  
+                player.marker = new google.maps.Marker({
+                    map: map,
+                    icon: getIcon(player.type),
+                    shadow: cursorImage
+                });
+
+                
+                $('#status').html("");
+                createWatch();
+                var loopReference = window.setInterval("checkForServerSync();", 10000);
+                setupGameOver(loopReference);
+            },
+            error: checkForUnauthorized
+           });
+}
+
+function setupGameOver(loopReference)
+{
+    safelySetTimeout(function(){gameOver(loopReference)}, endDate.getTime() - new Date().getTime());
+}
+
+function positionChanged(p)
+{
+    setPosition(p);
+    checkForServerSync();
+}
+
+function syncWithServer() {
+    if (requestActive)
+        return;
+    
+    requestActive = true;
+    
+    var url = "weevil/updateRunner";
+    if (lastModified)
+        url += "?ifRange=" + lastModified;
+    
+     $.ajax(url,
+            {type: "PUT",
+             data: JSON.stringify(player, ["id", "time", "duration", "distance", "speed", "location", "x", "y"]),
+             contentType: "application/json",
+             success: function(update, s, req) {
+                 updateMap(update);
+                 lastSynchronised = new Date();
+             },
+             complete: function(request, status) {
+                requestActive = false;
+             },
+             error: checkForUnauthorized
+            });
+}
+
+function checkForUnauthorized(request, status, errorThrown) {
+    if (request.status == 401)
+        location.assign("/weevil/runnerLogin")
+}
+
+function processDelta(changedDonations)
+{
+}
+
+</script>
+</head>
+
+<body onload="main()">
+
+    <div id="map_canvas" style="width: 100%; height: 95%"></div>
+    <div id="status">Initialising...</div>
+
+</body>
+</html>

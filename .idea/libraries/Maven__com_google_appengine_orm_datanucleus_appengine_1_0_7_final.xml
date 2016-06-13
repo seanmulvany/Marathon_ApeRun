@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.google.appengine.orm:datanucleus-appengine:1.0.7.final">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/orm/datanucleus-appengine/1.0.7.final/datanucleus-appengine-1.0.7.final-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/orm/datanucleus-appengine/1.0.7.final/datanucleus-appengine-1.0.7.final-sources.jar!/" />
+      <root url="file://$PROJECT_DIR$/src/main/java" />
+      <root url="file://$PROJECT_DIR$/src/test/java" />
+    </SOURCES>
+  </library>
+</component>

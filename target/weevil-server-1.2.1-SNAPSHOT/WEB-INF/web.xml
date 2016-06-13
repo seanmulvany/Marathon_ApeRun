@@ -1,0 +1,65 @@
+<web-app version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/applicationContext.xml</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>encoding</param-name>
+        <param-value>UTF-8</param-value>
+        <description>default input encoding</description>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <filter>
+        <filter-name>RunnerCookieFilter</filter-name>
+        <filter-class>com.apeworks.weevil.web.filter.RunnerCookieFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RunnerCookieFilter</filter-name>
+        <url-pattern>/weevil/addRunner</url-pattern>
+        <url-pattern>/weevil/updateRunner</url-pattern>
+        <url-pattern>/weevil/run</url-pattern>
+    </filter-mapping>
+
+    <display-name>Weevil Knievel</display-name>
+    <servlet>
+        <servlet-name>weevil</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>weevil</servlet-name>
+        <url-pattern>/weevil/*</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>donor.html</welcome-file>
+    </welcome-file-list>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Mails</web-resource-name>
+            <url-pattern>/weevil/mail/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Runner admin</web-resource-name>
+            <url-pattern>/weevil/runnerAdmin</url-pattern>
+            <url-pattern>/weevil/runnerAdmin.jsp</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>admin</role-name>
+        </auth-constraint>
+    </security-constraint>
+</web-app>

@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="objectify-2.2.3">
+    <CLASSES>
+      <root url="jar:///Library/objectify-2.2.3.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar:///Library/objectify-2.2.3.jar!/" />
+      <root url="jar:///Library/objectify-2.2.3.jar!/com/googlecode/objectify/impl/emul" />
+    </SOURCES>
+  </library>
+</component>

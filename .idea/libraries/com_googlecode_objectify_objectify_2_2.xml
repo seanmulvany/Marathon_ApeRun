@@ -1,0 +1,21 @@
+<component name="libraryTable">
+  <library name="com.googlecode.objectify:objectify:2.2" type="repository">
+    <properties maven-id="com.googlecode.objectify:objectify:4.0b1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/joda/joda-money/0.6/joda-money-0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/joda-time/joda-time/2.1/joda-time-2.1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-api-1.0-sdk/1.7.2/appengine-api-1.0-sdk-1.7.2.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/gwt/gwt-user/2.5.0-rc1/gwt-user-2.5.0-rc1.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/json/json/20090211/json-20090211.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-databind/2.0.6/jackson-databind-2.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-annotations/2.0.6/jackson-annotations-2.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/fasterxml/jackson/core/jackson-core/2.0.6/jackson-core-2.0.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/com/google/appengine/appengine-api-labs/1.7.2/appengine-api-labs-1.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

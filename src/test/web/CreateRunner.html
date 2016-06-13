@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:8888/" />
+<title>CreateRunner</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">CreateRunner</td></tr>
+</thead><tbody>
+<!--Unauthorised-->
+<tr>
+	<td>open</td>
+	<td>/_ah/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>uncheck</td>
+	<td>id=isAdmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/weevil/runnerAdmin.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>User not in required role</td>
+	<td></td>
+</tr>
+<!--Authorised-->
+<tr>
+	<td>open</td>
+	<td>/_ah/login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>check</td>
+	<td>id=isAdmin</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=action</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/weevil/runnerAdmin.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=id</td>
+	<td>asdf</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>css=input[type=&quot;submit&quot;]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>xpath=(//option[contains(text(),'asdf')])</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>xpath=(//form[@id='runnerCredentials']/@name)</td>
+	<td>pin</td>
+</tr>
+<tr>
+	<td>storeAttribute</td>
+	<td>xpath=(//option[contains(text(),'asdf')])@title</td>
+	<td>pin</td>
+</tr>
+</tbody></table>
+</body>
+</html>
